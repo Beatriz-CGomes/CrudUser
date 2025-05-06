@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,6 +9,9 @@ import { Component } from '@angular/core';
 })
 export class CadastroComponent {
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
   dataSource: any;
 
   applyFilter(event: Event) {
@@ -14,4 +19,8 @@ export class CadastroComponent {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
 }

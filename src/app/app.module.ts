@@ -17,6 +17,8 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 
 @NgModule({
@@ -38,7 +40,10 @@ import { MatFormFieldModule } from '@angular/material/form-field'
     MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginator,
+    MatSort
   ],
   providers: [
     /*
