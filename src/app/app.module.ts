@@ -14,6 +14,9 @@ import { MenuComponent } from './components/menu/menu.component';
 import { environment } from '../environments/environment.development';
 import { AngularFireModule } from '@angular/fire/compat';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field'
 
 
 @NgModule({
@@ -34,6 +37,8 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
     MatIconModule,
     MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [
     /*
