@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { environment } from '../environments/environment.development';
 import { AngularFireModule } from '@angular/fire/compat';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     LoginComponent,
     HomeComponent,
     MenuComponent,
+    CadastroComponent,
 
   ],
   imports: [
