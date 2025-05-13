@@ -29,7 +29,7 @@ tr{
 .th-table{
     font-size: 14px;
     font-weight: 500;
-    color: var(--gray-color);
+    color: #5a5a5a;
 }
 
 .td-table{
@@ -37,15 +37,15 @@ tr{
     font-weight: 400;
     color: #767676;
 }
-.icone-table{
+.icone-tabela{
     color: #767676;
     margin-right: 10px;
     transform: rotate(0deg);
-    transition: 03s liner all;
+    transition: 0.3s linear all;
     &:hover{
         cursor: pointer;
         color: var(--primary-color);
-        transform: rotate(359deg);
+        transform: rotate(360deg);
     }
 
 }

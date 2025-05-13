@@ -14,12 +14,12 @@ import { MenuComponent } from './components/menu/menu.component';
 import { environment } from '../environments/environment.development';
 import { AngularFireModule } from '@angular/fire/compat';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,15 +35,18 @@ import { MatSort } from '@angular/material/sort';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    //ANGULAR MATERIAL
     ReactiveFormsModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     MatInputModule,
     MatFormFieldModule,
     MatTableModule,
-    MatPaginator,
-    MatSort
+    MatPaginatorModule,
+    MatSortModule,
+    NoopAnimationsModule,
+    
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [
     /*

@@ -29,12 +29,12 @@
                 <!-- Nome Column -->
                 <ng-container matColumnDef="name">
                     <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
-                    <td class="td-table" mat-cell *matCellDef="let user"> {{user.name}}% </td>
+                    <td class="td-table" mat-cell *matCellDef="let user"> {{user.name}} </td>
                 </ng-container>
 
                 <!-- email Column -->
                 <ng-container matColumnDef="email">
-                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
                     <td class="td-table" mat-cell *matCellDef="let user"> {{user.email}} </td>
                 </ng-container>
 
@@ -46,14 +46,14 @@
 
                 <!-- beneficios Column -->
                 <ng-container matColumnDef="benefits">
-                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Beneficios </th>
+                    <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Benefícios </th>
                     <td class="td-table" mat-cell *matCellDef="let user">
-                        <!---FORMA ANTIGA DE SER USADA 
+                        <!---FORMA ANTIGA DE SER USADA  -->
                         <mat-icon class="c-primary" *ngIf="user.healthPlan || user.dentPlan">check</mat-icon>
                         <mat-icon class="c-error" *ngIf="!user.healthPlan && !user.dentPlan">remove</mat-icon>  
-                        -->
+                      
 
-                        <!---FORMA NOVA-->
+                        <!---FORMA NOVA
                         @if (user.healthPlan || user.dentPlan) {
                         <mat-icon class="c-primary">check</mat-icon>
                         }
@@ -61,7 +61,7 @@
                         @if (!user.healthPlan && !user.dentPlan) {
                         <mat-icon class="c-error">remove</mat-icon>
                         }
-
+                        -->
                     </td>
                 </ng-container>
 
@@ -72,21 +72,20 @@
                         <mat-icon class="icone-tabela">visibility</mat-icon>
                         <mat-icon class="icone-tabela">edit</mat-icon>
                         <mat-icon class="icone-tabela">delete</mat-icon>
-
                     </td>
                 </ng-container>
-                <tr mat-header-row *matHeaderRowDef=""></tr>
-                <tr mat-row *matRowDef="let row;"></tr>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 
                 <!-- Row shown when there is no matching data. -->
                 <tr class="mat-row" *matNoDataRow>
-                    <td class="mat-cell no-data" colspan="4">Não foram encontrados dados para pesquisa:
+                    <td class="mat-cell no-data" colspan="6">Não foram encontrados dados para a pesquisa:
                         "{{input.value}}"</td>
                 </tr>
             </table>
-
-            <mat-paginator [pageSizeOptions]="[3, 5, 10]" aria-label="Selecione usuários por página"></mat-paginator>
+            <mat-paginator class="shadow-sm" [pageSizeOptions]="[3, 5, 10]" aria-label="Selecione usuários por página"></mat-paginator>
         </div>
     </div>
 
