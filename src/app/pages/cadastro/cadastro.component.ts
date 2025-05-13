@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { UsersService } from '../../services/users.service';
 import { User } from '../../interfaces/user';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalViewUsersComponent } from './modal-view-users/modal-view-users.component';
 
 @Component({
   selector: 'app-cadastro',
@@ -20,7 +22,8 @@ export class CadastroComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-    private usersService: UsersService) {
+    private usersService: UsersService,
+    public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource<any>(this.listUsers);
   }
 
@@ -50,6 +53,15 @@ export class CadastroComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  //LOGICA DO MODAL
+  openModalViewUser(user: User){
+    this.dialog.open(ModalViewUsersComponent, {
+      width: '700px',
+      height: '330px',
+      data: user
+    })
   }
 
 }

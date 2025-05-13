@@ -20,6 +20,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalViewUsersComponent } from './pages/cadastro/modal-view-users/modal-view-users.component'
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     MenuComponent,
     CadastroComponent,
+    ModalViewUsersComponent,
 
   ],
   imports: [
@@ -45,6 +48,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     MatPaginatorModule,
     MatSortModule,
     NoopAnimationsModule,
+    MatDialogModule,
     
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
