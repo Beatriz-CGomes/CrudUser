@@ -50,8 +50,8 @@
                     <td class="td-table" mat-cell *matCellDef="let user">
                         <!---FORMA ANTIGA DE SER USADA  -->
                         <mat-icon class="c-primary" *ngIf="user.healthPlan || user.dentPlan">check</mat-icon>
-                        <mat-icon class="c-error" *ngIf="!user.healthPlan && !user.dentPlan">remove</mat-icon>  
-                      
+                        <mat-icon class="c-error" *ngIf="!user.healthPlan && !user.dentPlan">remove</mat-icon>
+
 
                         <!---FORMA NOVA
                         @if (user.healthPlan || user.dentPlan) {
@@ -85,8 +85,8 @@
                         "{{input.value}}"</td>
                 </tr>
             </table>
-            <mat-paginator class="shadow-sm" [pageSizeOptions]="[3, 5, 10]" aria-label="Selecione usuários por página"></mat-paginator>
+            <mat-paginator class="shadow-sm" [pageSizeOptions]="[3, 5, 10]"
+                aria-label="Selecione usuários por página"></mat-paginator>
         </div>
     </div>
 </div>
-

@@ -46,14 +46,14 @@ export class CadastroComponent implements OnInit {
         this.dataSource = new MatTableDataSource<any>(this.listUsers);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        this.paginator._intl.itemsPerPageLabel="Itens por página";
+        this.paginator._intl.itemsPerPageLabel = "Itens por página";
       }, error: (err) => {
         console.error(err);
       }
     });
   }
 
-   deletUser(userId: string){
+  deletUser(userId: string) {
     this.usersService.delete(userId).then(
       (response: any) => {
         window.alert('Usuário deletedo com sucesso ')
@@ -81,5 +81,5 @@ export class CadastroComponent implements OnInit {
     }).afterClosed().subscribe(() => this.getListUsers());
   }
 
- 
+
 }
