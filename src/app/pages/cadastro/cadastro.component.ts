@@ -6,6 +6,7 @@ import { User } from '../../interfaces/user';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalViewUsersComponent } from './modal-view-users/modal-view-users.component';
+import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 
 @Component({
   selector: 'app-cadastro',
@@ -56,12 +57,19 @@ export class CadastroComponent implements OnInit {
   }
 
   //LOGICA DO MODAL
-  openModalViewUser(user: User){
+  openModalViewUser(user: User) {
     this.dialog.open(ModalViewUsersComponent, {
       width: '700px',
       height: '330px',
       data: user
     })
+  }
+
+  openModalAddUser() {
+    this.dialog.open(ModalFormUserComponent, {
+      width: '700px',
+      height: '400px',
+    }).afterClosed().subscribe(() => this.getListUsers());
   }
 
 }

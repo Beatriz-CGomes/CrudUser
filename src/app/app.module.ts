@@ -21,7 +21,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ModalViewUsersComponent } from './pages/cadastro/modal-view-users/modal-view-users.component'
+import { ModalViewUsersComponent } from './pages/cadastro/modal-view-users/modal-view-users.component';
+import { ModalFormUserComponent } from './pages/cadastro/modal-form-user/modal-form-user.component'
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ModalViewUsersComponent } from './pages/cadastro/modal-view-users/modal
     MenuComponent,
     CadastroComponent,
     ModalViewUsersComponent,
+    ModalFormUserComponent,
 
   ],
   imports: [
