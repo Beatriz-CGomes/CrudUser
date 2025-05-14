@@ -23,6 +23,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalViewUsersComponent } from './pages/cadastro/modal-view-users/modal-view-users.component';
 import { ModalFormUserComponent } from './pages/cadastro/modal-form-user/modal-form-user.component'
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ModalFormUserComponent } from './pages/cadastro/modal-form-user/modal-f
     MatSortModule,
     NoopAnimationsModule,
     MatDialogModule,
+    MatSelectModule,
     
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
