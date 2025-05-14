@@ -38,6 +38,7 @@ export class CadastroComponent implements OnInit {
   }
 
 
+  //FUNÇÕES DO USUÁRIOS
   getListUsers() {
     this.usersService.getAllUsers().subscribe({
       next: (response: any) => {
@@ -50,6 +51,13 @@ export class CadastroComponent implements OnInit {
         console.error(err);
       }
     });
+  }
+
+   deletUser(userId: string){
+    this.usersService.delete(userId).then(
+      (response: any) => {
+        window.alert('Usuário deletedo com sucesso ')
+      });
   }
 
   applyFilter(event: Event) {
@@ -73,4 +81,5 @@ export class CadastroComponent implements OnInit {
     }).afterClosed().subscribe(() => this.getListUsers());
   }
 
+ 
 }

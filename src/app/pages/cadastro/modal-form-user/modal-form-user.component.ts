@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UsersService } from '../../../services/users.service';
+import { User } from '../../../interfaces/user';
 
 @Component({
   selector: 'app-modal-form-user',
@@ -42,12 +44,25 @@ export class ModalFormUserComponent implements OnInit {
   formUser: FormGroup;
 
   constructor(public dialogRef: MatDialogRef<ModalFormUserComponent>,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private userService: UsersService) { }
 
   ngOnInit(): void {
     this.buildForm();
   }
 
+  salveUser() {
+    const objUserForm: User = this.formUser.getRawValue();
+    this.userService.addUser(objUserForm).then((response: any) => {
+      window.alert('Usuario foi cadastrado com sucesso');
+      this.closeModal();
+    }).catch(err => {
+      window.alert('Houve um erro ao cadastrar usuário');
+      console.error(err);
+    });
+    ;
+
+  }
 
   closeModal() {
     this.dialogRef.close();
