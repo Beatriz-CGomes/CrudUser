@@ -45,8 +45,9 @@ export class CadastroComponent implements OnInit {
         this.dataSource = new MatTableDataSource<any>(this.listUsers);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.paginator._intl.itemsPerPageLabel="Itens por página";
       }, error: (err) => {
-        console.log(err);
+        console.error(err);
       }
     });
   }
