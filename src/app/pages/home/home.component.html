@@ -20,7 +20,14 @@
                         <app-button textButton="Iniciar" routerLink="/cadastro"></app-button>
                     </div>
                     <div class="col-12 col-md-4">
+                        @defer{
                         <img src="../../../assets/img/dashboard.png" width="100%">
+                        } @placeholder (minimum 1000ms) {
+                            carregando imagem .. 
+                        } @error {
+                            falha ao carregar a imagem
+                        }
+
                     </div>
                 </div>
             </div>
@@ -96,13 +103,13 @@
                 <hr class="hr">
                 <p class="texto-p">"Um ser humano deve transformar informação em inteligência ou conhecimento. Tendemos
                     a esquecer que nenhum computador jamais fará uma nova pergunta"</p>
-              
+
                 <li><mat-icon>person</mat-icon>Gerencie usuários</li>
-            
+
                 <li><mat-icon>loyalty</mat-icon>Adicione benefícios</li>
-            
+
                 <li><mat-icon>format_list_bulleted</mat-icon>Consulte cadastros</li>
-                
+
                 <li><mat-icon>delete</mat-icon>Exclua usuários</li>
             </div>
         </div>
