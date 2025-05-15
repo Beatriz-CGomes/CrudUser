@@ -81,5 +81,13 @@ export class CadastroComponent implements OnInit {
     }).afterClosed().subscribe(() => this.getListUsers());
   }
 
+  openModalEditUser(user: User) {
+    this.dialog.open(ModalFormUserComponent, {
+      width: '700px',
+      height: '400px',
+      data: user
+    }).afterClosed().subscribe(() => this.getListUsers());
+
+  }
 
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UsersService } from '../../../services/users.service';
 import { User } from '../../../interfaces/user';
 
@@ -43,29 +43,45 @@ export class ModalFormUserComponent implements OnInit {
 
   formUser: FormGroup;
 
+  editiUser: boolean = false;
+
   constructor(public dialogRef: MatDialogRef<ModalFormUserComponent>,
     private formBuilder: FormBuilder,
-    private userService: UsersService) { }
+    private userService: UsersService,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
     this.buildForm();
+    if(this.data && this.data.name){
+      this.editiUser = true;
+    }
   }
 
+
+  //FUNÇÃO USER
   salveUser() {
     const objUserForm: User = this.formUser.getRawValue();
-    this.userService.addUser(objUserForm).then((response: any) => {
-      window.alert('Usuario foi cadastrado com sucesso');
-      this.closeModal();
-    }).catch(err => {
-      window.alert('Houve um erro ao cadastrar usuário');
-      console.error(err);
-    });
-    ;
 
-  }
+    //EDITANDO
+    if (this.data && this.data.name) {
+      this.userService.update(this.data.fireBaseId, objUserForm).then((response: any) => {
+        window.alert('Usuario foi atualizado com sucesso');
+        this.closeModal();
+      }).catch(err => {
+        window.alert('Houve um erro ao atualizar usuário');
+        console.error(err);
+      });
 
-  closeModal() {
-    this.dialogRef.close();
+    } else {
+      //SALVANDO UM NOVO USUARIO
+      this.userService.addUser(objUserForm).then((response: any) => {
+        window.alert('Usuario foi cadastrado com sucesso');
+        this.closeModal();
+      }).catch(err => {
+        window.alert('Houve um erro ao cadastrar usuário');
+        console.error(err);
+      });
+    }
   }
 
   buildForm() {
@@ -77,6 +93,27 @@ export class ModalFormUserComponent implements OnInit {
       healthPlan: [''],
       dentPlan: [''],
     });
+
+    if (this.data && this.data.name) {
+      this.fillForm();
+    }
+  }
+
+  //preenchimento de formulário para o update
+  fillForm() {
+    this.formUser.patchValue({
+      name: this.data.name,
+      email: this.data.email,
+      sector: this.data.sector,
+      role: this.data.role,
+      healthPlan: this.data.healthPlan,
+      dentPlan: this.data.dentPlan,
+    });
+  }
+
+  //MODAL
+  closeModal() {
+    this.dialogRef.close();
   }
 
 }

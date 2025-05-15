@@ -1,7 +1,8 @@
 <div class="container-fluid p-3">
     <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
 
-    <h1 class="titulo">Formulário de Usário</h1>
+    <h1 class="titulo" *ngIf="editiUser">Editar Usário</h1>
+    <h1 class="titulo" *ngIf="!editiUser">Cadastrar Usário</h1>
     <h2 class="subtitulo">Preencha o formulário para salvar o usuário</h2>
 
     <!---FORMULÁRIO-->
@@ -70,7 +71,8 @@
             </mat-form-field>
         </div>
         <div class="col-12">
-            <button class="botao-primario float-end" [disabled]="!formUser.valid"  (click)="salveUser()">Salvar Usuário</button>
+            <button class="botao-primario float-end" [disabled]="!formUser.valid" (click)="salveUser()">Salvar
+                Usuário</button>
         </div>
 
     </form>
